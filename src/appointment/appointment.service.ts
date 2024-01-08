@@ -22,14 +22,6 @@ export class AppointmentService {
     appointment.cat = relatedCat;
     appointment.dateTime = createAppointmentDto.dateTime;
 
-    return "This action adds a new appointment";
-  }
-
-  findAll() {
-    return `This action returns all appointment`;
-  }
-
-  findOne(id: number) {
-    return `This action returns a #${id} appointment`;
+    return this.appointmentRepository.save(appointment);
   }
 }
