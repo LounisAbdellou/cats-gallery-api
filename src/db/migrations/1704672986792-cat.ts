@@ -1,14 +1,14 @@
 import { MigrationInterface, QueryRunner, Table } from "typeorm";
 
-export class Cats1704661740593 implements MigrationInterface {
+export class Cat1704672986792 implements MigrationInterface {
   public async up(queryRunner: QueryRunner): Promise<void> {
     await queryRunner.createTable(
       new Table({
-        name: "cats",
+        name: "cat",
         columns: [
           {
             name: "id",
-            type: "increment",
+            type: "int",
             isPrimary: true,
           },
           {
@@ -42,6 +42,6 @@ export class Cats1704661740593 implements MigrationInterface {
   }
 
   public async down(queryRunner: QueryRunner): Promise<void> {
-    await queryRunner.dropTable("cats");
+    await queryRunner.dropTable("cat");
   }
 }

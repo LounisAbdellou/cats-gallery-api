@@ -1,6 +1,6 @@
 import { Seeder } from "typeorm-extension";
 import { DataSource } from "typeorm";
-import { Cat } from "src/cats/entities/cat.entity";
+import { Cat } from "src/cat/entities/cat.entity";
 
 export default class CatSeeder implements Seeder {
   public async run(dataSource: DataSource): Promise<void> {
@@ -8,7 +8,7 @@ export default class CatSeeder implements Seeder {
 
     const repository = dataSource.getRepository(Cat);
 
-    const catsEntities = repository.create([
+    await repository.insert([
       {
         name: "Robi",
         birthdate: "2015-03-29",
@@ -74,7 +74,5 @@ export default class CatSeeder implements Seeder {
         picturePath: "http://placekitten.com/500/300",
       },
     ]);
-
-    await repository.insert(catsEntities);
   }
 }

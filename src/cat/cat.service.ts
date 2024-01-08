@@ -1,9 +1,9 @@
 import { Injectable } from "@nestjs/common";
 
 @Injectable()
-export class CatsService {
+export class CatService {
   findAll() {
-    return `This action returns all cats`;
+    return `This action returns all cat`;
   }
 
   findOne(id: number) {
