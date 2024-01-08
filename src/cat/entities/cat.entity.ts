@@ -1,4 +1,5 @@
-import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
+import { Appointment } from "src/appointment/entities/appointment.entity";
+import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from "typeorm";
 
 @Entity()
 export class Cat {
@@ -20,6 +21,9 @@ export class Cat {
   @Column({ name: "gender" })
   gender: string;
 
-  @Column({ name: "picture_path" })
+  @Column({ name: "picturePath" })
   picturePath: string;
+
+  @OneToMany(() => Appointment, (appointment) => appointment.cat)
+  appointments: Appointment[];
 }
