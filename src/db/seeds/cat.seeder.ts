@@ -4,8 +4,6 @@ import { Cat } from "src/cat/entities/cat.entity";
 
 export default class CatSeeder implements Seeder {
   public async run(dataSource: DataSource): Promise<void> {
-    await dataSource.query('TRUNCATE "cat" RESTART IDENTITY;');
-
     const repository = dataSource.getRepository(Cat);
 
     await repository.insert([
